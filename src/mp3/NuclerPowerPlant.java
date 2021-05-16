@@ -4,10 +4,11 @@ import java.time.LocalDate;
 import java.util.Random;
 
 public class NuclerPowerPlant extends PowerPlant {
-    private int quantityOfReactors ;
+    private int quantityOfReactors;
 
-    public NuclerPowerPlant(String name, String address, LocalDate createDate, int powerGeneratedElectricityPerDay) {
+    public NuclerPowerPlant(String name, String address, LocalDate createDate, int powerGeneratedElectricityPerDay, int quantityOfReactors) {
         super(name, address, createDate, powerGeneratedElectricityPerDay);
+        this.quantityOfReactors = quantityOfReactors;
     }
 
     public int getQuantityOfReactors() {
@@ -33,7 +34,8 @@ public class NuclerPowerPlant extends PowerPlant {
     
     @Override
     public void showMonthElectricictyGeneration() {
-        System.out.println("Electricicty generated in 30 days: " + 
+        System.out.println(
+                "Electricicty generated in 30 days by Nucler Power Plant: " + 
                 (
                 30
                 *
