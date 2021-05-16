@@ -22,7 +22,7 @@ public class MP3 {
     }
     
     public static void showArrayValues(String[] elements){
-        for(int i =0; i < elements.length; i++){
+        for(int i = 0; i < elements.length; i++){
             System.out.println(elements[i]);
         }
     }
