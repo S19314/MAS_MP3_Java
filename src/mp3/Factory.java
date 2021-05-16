@@ -82,9 +82,8 @@ public class Factory {
     }
     
     /*
-        Fields of Bakery
+         Methods of Bakery
     */
-    
     
     private String produceBread(BreadType breadType) throws Exception{
         String producedBread = "FACTORY_DOESNT_HAVE_RECIPE_FOR_" + breadType;
@@ -123,4 +122,15 @@ public class Factory {
         Fields of Beverage fabricator
     */
     
+    private String[] produceSpriteBottlesOneLitreVolume(int quantityLitres) throws Exception {
+        if(factoryKind.contains(FactoryType.BeverageFabricator)){
+            String bottles[] = new String[quantityLitres];
+            for(int i = 0; i < quantityLitres; i++){
+                bottles[i] = "One litre of bottle with Sprite.";
+            }
+            return bottles;
+        }else{
+            throw new Exception("The Factory is not a Beverage Fabricator type.");
+        }
+    }
 }
