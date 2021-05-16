@@ -6,6 +6,7 @@
 package mp3;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 
 /**
@@ -19,6 +20,7 @@ public class MP3 {
      */
     public static void main(String[] args) {
         overlapping();
+        testDisjointPolymorphic();
     }
     
     public static void showArrayValues(String[] elements){
@@ -42,7 +44,26 @@ public class MP3 {
                 e.printStackTrace();
         }
     }
+    
+    public static void testDisjointPolymorphic() {
+     PowerPlant powerPlant1 =
+             new NuclerPowerPlant(
+                     "South-Ukrainian nuclear power plant", 
+                     "Mykolaiv Oblast", 
+                     LocalDate.of(1982, Month.MARCH, 14),
+                     3000, 
+                     4
+             );
+            PowerPlant powerPlant2 = new HydroelectricPowerPlant(
+                    "Wisla Entertaiment",
+                    "Black",
+                    LocalDate.of(1995, 10, 18),
+                    1212,
+                    200
+            );
 
-    
-    
+            powerPlant1.showMonthElectricictyGeneration();
+            powerPlant2.showMonthElectricictyGeneration();
+            
+    }
 }
