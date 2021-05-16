@@ -1,5 +1,6 @@
 package mp3;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumSet;
@@ -10,7 +11,7 @@ public class Factory {
     /*
         Fields of Factory 
     */
-    private Date creationDate;
+    private LocalDate creationDate;
     private String name;
     
     /*
@@ -22,36 +23,37 @@ public class Factory {
     /*
         Fields of Beverage fabricator
     */
-    private int maxProduceLitresDrinkPerDay;
+    private int maxProduceLitresDrinkPerOneCycle;
+    // maxProduceLitresDrinkPerOneCycle
     
     private EnumSet<FactoryType> factoryKind = EnumSet.of(FactoryType.Factory);
 
     /*
         Creates Bakery-Beverage fabricator.
     */
-    public Factory(Date creationDate, String name, String[] historyProducedBread, int maxProduceLitresDrinkPerDay) {
+    public Factory(LocalDate creationDate, String name, String[] historyProducedBread, int maxProduceLitresDrinkPerDay) {
         this.creationDate = creationDate;
         this.name = name;
         this.addHistoryProducedBread(historyProducedBread);
-        this.maxProduceLitresDrinkPerDay = maxProduceLitresDrinkPerDay;
+        this.maxProduceLitresDrinkPerOneCycle = maxProduceLitresDrinkPerDay;
         
         factoryKind.add(FactoryType.Bakery);
         factoryKind.add(FactoryType.BeverageFabricator);
     }
 
-    public int getMaxProduceLitresDrinkPerDay() {
-        return maxProduceLitresDrinkPerDay;
+    public int getMaxProduceLitresDrinkPerOneCycle() {
+        return maxProduceLitresDrinkPerOneCycle;
     }
 
-    public void setMaxProduceLitresDrinkPerDay(int maxProduceLitresDrinkPerDay) {
-        this.maxProduceLitresDrinkPerDay = maxProduceLitresDrinkPerDay;
+    public void setMaxProduceLitresDrinkPerOneCycle(int maxProduceLitresDrinkPerOneCycle) {
+        this.maxProduceLitresDrinkPerOneCycle = maxProduceLitresDrinkPerOneCycle;
     }
     
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -89,16 +91,16 @@ public class Factory {
         String producedBread = "FACTORY_DOESNT_HAVE_RECIPE_FOR_" + breadType;
         switch(breadType){
             case Bran:
-                producedBread = "Bran"; 
+                producedBread = "Bran bread"; 
             break;
             case Buckwheat: 
-                producedBread = "Buckwheat";
+                producedBread = "Buckwheat bread";
             break;
             case Grain: 
-                producedBread = "Grain";
+                producedBread = "Grain bread";
             break;
             case Wheat: 
-                producedBread = "Wheat";
+                producedBread = "Wheat bread";
             break;
             default:        
                 throw new Exception("Enum BreadType, isn't implemented for " 
@@ -112,6 +114,7 @@ public class Factory {
             for(int i = 0; i < quantity; i++){
                 breads[i] = produceBread(breadType);
             }
+            addHistoryProducedBread(breads);
             return breads;
         }else{
             throw new Exception("The Factory is not a Bakery type.");
@@ -122,8 +125,11 @@ public class Factory {
         Fields of Beverage fabricator
     */
     
-    private String[] produceSpriteBottlesOneLitreVolume(int quantityLitres) throws Exception {
+    public String[] produceSpriteBottlesOneLitreVolume(int quantityLitres) throws Exception {
         if(factoryKind.contains(FactoryType.BeverageFabricator)){
+            if(quantityLitres > getMaxProduceLitresDrinkPerOneCycle()){
+                quantityLitres = getMaxProduceLitresDrinkPerOneCycle();
+            }
             String bottles[] = new String[quantityLitres];
             for(int i = 0; i < quantityLitres; i++){
                 bottles[i] = "One litre of bottle with Sprite.";
