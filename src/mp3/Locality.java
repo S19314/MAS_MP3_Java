@@ -24,6 +24,30 @@ public abstract class Locality {
     
     public abstract int countLifeLevel();
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(long population) {
+        this.population = population;
+    }
+
+    public LocalDate getCreationTime() {
+        return CreationTime;
+    }
+
+    private void setCreationTime(LocalDate CreationTime) {
+        this.CreationTime = CreationTime;
+    }
+    
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "{name=" + name + ", population=" + population + ", CreationTime=" + CreationTime + '}';
