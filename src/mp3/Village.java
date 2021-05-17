@@ -14,27 +14,27 @@ import java.util.ArrayList;
  */
 public class Village extends Locality {
     
-    private LocalDate dateBecoming;
-    private ArrayList<String> schools;
+    private LocalDate dateBecomingVillage;
+    private ArrayList<String> schools = new ArrayList<>();
     
     public Village(String name, long population, LocalDate CreationTime, String[] schools) {
         super(name, population, CreationTime);
-        setDateBecoming(LocalDate.now());
+        setDateBecomingVillage(LocalDate.now());
         addSchools(schools);
     }
 
     public Village(Locality prevLocality, String[] schools){
         super(prevLocality.getName(), prevLocality.getPopulation(), prevLocality.getCreationTime());
-        setDateBecoming(LocalDate.now());
+        setDateBecomingVillage(LocalDate.now());
         addSchools(schools);
     }
     
-    public LocalDate getDateBecoming() {
-        return dateBecoming;
+    public LocalDate getDateBecomingVillage() {
+        return dateBecomingVillage;
     }
 
-    private void setDateBecoming(LocalDate dateBecoming) {
-        this.dateBecoming = dateBecoming;
+    private void setDateBecomingVillage(LocalDate dateBecomingVillage) {
+        this.dateBecomingVillage = dateBecomingVillage;
     }
 
     public String[] getSchools() {
