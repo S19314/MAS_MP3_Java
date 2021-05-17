@@ -21,7 +21,8 @@ public class MP3 {
      */
     public static void main(String[] args) {
         overlapping();
-        testDisjointPolymorphic();
+        disjointPolymorphic();
+        multipleInheritance();
     }
     
     public static void showArrayValues(String[] elements){
@@ -31,6 +32,7 @@ public class MP3 {
     }
     
     public static void overlapping() {
+        System.out.println("overlapping");
         Factory factory = new Factory(
                 LocalDate.of(2004, 3, 4),
                 "Tesla food producer",
@@ -46,7 +48,8 @@ public class MP3 {
         }
     }
     
-    public static void testDisjointPolymorphic() {
+    public static void disjointPolymorphic() {
+        System.out.println("disjointPolymorphic");
      PowerPlant powerPlant1 =
              new NuclerPowerPlant(
                      "South-Ukrainian nuclear power plant", 
@@ -70,6 +73,7 @@ public class MP3 {
     
     
     public static void multipleInheritance() {
+        System.out.println("multipleInheritance");
         try {
         ComplexHydroElectricalTidalPowerPlant complexHydroElectricalTidalPowerPlant
                 = new ComplexHydroElectricalTidalPowerPlant(
