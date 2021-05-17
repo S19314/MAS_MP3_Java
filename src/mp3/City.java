@@ -57,4 +57,13 @@ public class City extends Locality {
         int schoolMark = 3, museumMark = 2;
         return schoolMark * schools.size() + museumMark*museums.size();
     }
+
+    @Override
+    public String toString() {
+        return "City{" + "dateBecomingCity=" + dateBecomingCity + ", schools=" + schools + ", museums=" + museums + "} "
+                + "LifeLevel " + countLifeLevel();
+    }
+    
+    
+    
 }

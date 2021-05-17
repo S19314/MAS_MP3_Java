@@ -52,5 +52,12 @@ public class Village extends Locality {
         int schoolMark = 3;
         return schoolMark * schools.size();
     }
+
+    @Override
+    public String toString() {
+        return "Village{" + "dateBecomingVillage=" + dateBecomingVillage + ", schools=" + schools + '}'
+                + "LifeLevel " + countLifeLevel();
+    }
+    
     
 }

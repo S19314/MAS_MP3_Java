@@ -58,5 +58,11 @@ public class Metropolis extends Locality {
         return schoolMark * schools.size() + museumMark*museums.size() + shoppingCenrter*museums.size();
     }
 
+    @Override
+    public String toString() {
+        return "Metropolis{" + "DateBecomingMetropolis=" + DateBecomingMetropolis + ", schools=" + schools + ", museums=" + museums + ", shoppingCenters=" + shoppingCenters + '}' +
+                 "LifeLevel " + countLifeLevel();
+    }
+
     
 }

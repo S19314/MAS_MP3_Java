@@ -23,6 +23,8 @@ public class MP3 {
         overlapping();
         disjointPolymorphic();
         multipleInheritance();
+        Wieloaspektowosc();
+        dynamic();
     }
     
     public static void showArrayValues(String[] elements){
@@ -102,7 +104,7 @@ public class MP3 {
                      4
              );
         powerPlant1.createNotEnvironmentallyFriendly("Uran",100);
-        NotEnvironmentallyFriendly nef =(NotEnvironmentallyFriendly)powerPlant1.getImpactOnEnvironment();
+        PowerPlant.NotEnvironmentallyFriendly nef =(PowerPlant.NotEnvironmentallyFriendly)powerPlant1.getImpactOnEnvironment();
         System.out.println("nef.countUsedFullToday();");
         System.out.println(nef.countUsedFullToday());
         
@@ -116,6 +118,22 @@ public class MP3 {
         PowerPlant.EcologicalyFriendly ef = (PowerPlant.EcologicalyFriendly) powerPlant2.createEnvironmentallyFriendly(0);
         System.out.println("ef.countAverageWorkingTime()");
         System.out.println(ef.countAverageWorkingTime());
+    }
+    
+    public static void dynamic() {
+
+        Locality locality = new Village("Kisoto", 2000, LocalDate.of(1772, 2, 2), new String[]{"Oksford"});
+        System.out.println(locality);
+
+        locality = new City(locality, new String[]{"Oksford"}, new String[]{"Kopernik", "Old Culter "});
+        System.out.println(locality);
+
+        
+        locality = new Metropolis(locality, new String[]{"Oksford"}, 
+                new String[]{"Kopernik", "Old Culter "}, 
+                new String[]{"Arkadia"}
+        );
+        System.out.println(locality);
     }
 
     
