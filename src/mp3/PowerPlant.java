@@ -11,7 +11,7 @@ public abstract class PowerPlant { // abstract?
     private LocalDate createDate;
     private int powerGeneratedElectricityPerDay;
 
-    private List<ImpactOnEnvironment> impactOnEnvironments = new ArrayList<>();
+    private ImpactOnEnvironment impactOnEnvironment;
     
     public PowerPlant(String name, String address, LocalDate createDate, int powerGeneratedElectricityPerDay) {
         this.name = name;
@@ -21,16 +21,24 @@ public abstract class PowerPlant { // abstract?
     }
     public abstract void showMonthElectricictyGeneration();
     
-    public ImpactOnEnvironment createNotEnvironmentallyFriendly(String fuelName, int fuelAmount) {
+    public PowerPlant.ImpactOnEnvironment createNotEnvironmentallyFriendly(String fuelName, int fuelAmount) {
         ImpactOnEnvironment impactOnEnvironment = new NotEnvironmentallyFriendly(fuelName,  fuelAmount);
-        impactOnEnvironments.add(impactOnEnvironment);
+        this.setImpactOnEnvironment(impactOnEnvironment);
         return impactOnEnvironment;
     }
     
     public ImpactOnEnvironment createEnvironmentallyFriendly(int lastAverageWorkingTime) {
         ImpactOnEnvironment impactOnEnvironment = new EcologicalyFriendly(lastAverageWorkingTime);
-        impactOnEnvironments.add(impactOnEnvironment);
+        this.setImpactOnEnvironment(impactOnEnvironment);
         return impactOnEnvironment;
+    }
+
+    public ImpactOnEnvironment getImpactOnEnvironment() {
+        return impactOnEnvironment;
+    }
+
+    private void setImpactOnEnvironment(ImpactOnEnvironment impactOnEnvironment) {
+        this.impactOnEnvironment = impactOnEnvironment;
     }
     
     
@@ -68,39 +76,9 @@ public abstract class PowerPlant { // abstract?
     
     
     public class ImpactOnEnvironment{
-        
+        public ImpactOnEnvironment(){
+        }
     }
-    
-    public class NotEnvironmentallyFriendly extends PowerPlant.ImpactOnEnvironment {
-    private String fuelName;
-    private int fuelAmount;
-
-    public NotEnvironmentallyFriendly(String fuelName, int fuelAmount) {
-        this.fuelName = fuelName;
-        this.fuelAmount = fuelAmount;
-    }
-
-    public String getFuelName() {
-        return fuelName;
-    }
-
-    public void setFuelName(String fuelName) {
-        this.fuelName = fuelName;
-    }
-
-    public int getFuelAmount() {
-        return fuelAmount;
-    }
-
-    public void setFuelAmount(int fuelAmount) {
-        this.fuelAmount = fuelAmount;
-    }
-    
-    public double countUsedFullToday(){
-        Random random = new Random();
-        return random.nextInt(getFuelAmount());
-    }
-}
     
     public class EcologicalyFriendly extends PowerPlant.ImpactOnEnvironment {
     private int lastAverageWorkingTime;
@@ -129,6 +107,36 @@ public abstract class PowerPlant { // abstract?
         int workHours = (int)(Math.random()*10);
         setLastAverageWorkingTime(workHours);
         return workHours;
+    }
+}
+    public class NotEnvironmentallyFriendly extends PowerPlant.ImpactOnEnvironment {
+    private String fuelName;
+    private int fuelAmount;
+
+    public NotEnvironmentallyFriendly(String fuelName, int fuelAmount) {
+        this.fuelName = fuelName;
+        this.fuelAmount = fuelAmount;
+    }
+
+    public String getFuelName() {
+        return fuelName;
+    }
+
+    public void setFuelName(String fuelName) {
+        this.fuelName = fuelName;
+    }
+
+    public int getFuelAmount() {
+        return fuelAmount;
+    }
+
+    public void setFuelAmount(int fuelAmount) {
+        this.fuelAmount = fuelAmount;
+    }
+    
+    public double countUsedFullToday(){
+        Random random = new Random();
+        return random.nextInt(getFuelAmount());
     }
 }
 }

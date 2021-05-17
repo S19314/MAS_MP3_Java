@@ -89,7 +89,33 @@ public class MP3 {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public static void Wieloaspektowosc(){
+        System.out.println("Wieloaspektowosc");
+        PowerPlant powerPlant1 =
+             new NuclerPowerPlant(
+                     "South-Ukrainian nuclear power plant", 
+                     "Mykolaiv Oblast", 
+                     LocalDate.of(1982, Month.MARCH, 14),
+                     3000, 
+                     4
+             );
+        powerPlant1.createNotEnvironmentallyFriendly("Uran",100);
+        NotEnvironmentallyFriendly nef =(NotEnvironmentallyFriendly)powerPlant1.getImpactOnEnvironment();
+        System.out.println("nef.countUsedFullToday();");
+        System.out.println(nef.countUsedFullToday());
         
+        PowerPlant powerPlant2 = new HydroelectricPowerPlant(
+                "Wisla Entertaiment",
+                "Black",
+                LocalDate.of(1995, 10, 18),
+                1212,
+                200
+        );
+        PowerPlant.EcologicalyFriendly ef = (PowerPlant.EcologicalyFriendly) powerPlant2.createEnvironmentallyFriendly(0);
+        System.out.println("ef.countAverageWorkingTime()");
+        System.out.println(ef.countAverageWorkingTime());
     }
 
     
