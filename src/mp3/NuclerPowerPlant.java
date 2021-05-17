@@ -6,9 +6,18 @@ import java.util.Random;
 public class NuclerPowerPlant extends PowerPlant {
     private int quantityOfReactors;
 
-    public NuclerPowerPlant(String name, String address, LocalDate createDate, int powerGeneratedElectricityPerDay, int quantityOfReactors) {
+    public NuclerPowerPlant(
+            String name,
+            String address, 
+            LocalDate createDate, 
+            int powerGeneratedElectricityPerDay, 
+            int quantityOfReactors, 
+            String fuelName,
+            int fuelAmount
+    ) {
         super(name, address, createDate, powerGeneratedElectricityPerDay);
         this.quantityOfReactors = quantityOfReactors;
+        createNotEnvironmentallyFriendly(fuelName, fuelAmount);
     }
 
     public int getQuantityOfReactors() {
@@ -45,4 +54,11 @@ public class NuclerPowerPlant extends PowerPlant {
                 )
         );
     }
+
+    @Override
+    public String toString() {
+        return "NuclerPowerPlant{" + "quantityOfReactors=" + quantityOfReactors + '}';
+    }
+    
+    
 }

@@ -73,6 +73,11 @@ public abstract class PowerPlant { // abstract?
     public void setPowerGeneratedElectricityPerDay(int powerGeneratedElectricityPerDay) {
         this.powerGeneratedElectricityPerDay = powerGeneratedElectricityPerDay;
     }
+
+    @Override
+    public String toString() {
+        return "PowerPlant{" + "name=" + name + ", address=" + address + ", createDate=" + createDate + ", powerGeneratedElectricityPerDay=" + powerGeneratedElectricityPerDay + ", impactOnEnvironment=" + impactOnEnvironment + '}';
+    }
     
     
     public class ImpactOnEnvironment{
@@ -108,6 +113,12 @@ public abstract class PowerPlant { // abstract?
         setLastAverageWorkingTime(workHours);
         return workHours;
     }
+
+    @Override
+    public String toString() {
+        return "EcologicalyFriendly{" + "lastAverageWorkingTime=" + lastAverageWorkingTime + ", typeOfTime=" + typeOfTime + '}';
+    }
+    
 }
     public class NotEnvironmentallyFriendly extends PowerPlant.ImpactOnEnvironment {
     private String fuelName;
@@ -138,5 +149,11 @@ public abstract class PowerPlant { // abstract?
         Random random = new Random();
         return random.nextInt(getFuelAmount());
     }
+
+    @Override
+    public String toString() {
+        return "NotEnvironmentallyFriendly{" + "fuelName=" + fuelName + ", fuelAmount=" + fuelAmount + '}';
+    }
+    
 }
 }

@@ -14,7 +14,8 @@ public class TidalPowerPlant extends PowerPlant {
             LocalDate createDate,
             int powerGeneratedElectricityPerDay,
             LocalTime startTimeRushOfWater,
-            LocalTime endTimeRushOfWater
+            LocalTime endTimeRushOfWater,
+            int lastAverageWorkingTime
     ) throws Exception{
         super(name, address, createDate, powerGeneratedElectricityPerDay);
         validationEndAndStartTimeRushOfWater(
@@ -22,6 +23,7 @@ public class TidalPowerPlant extends PowerPlant {
         );
         this.endTimeRushOfWater = endTimeRushOfWater;
         this.startTimeRushOfWater = startTimeRushOfWater;
+        createEnvironmentallyFriendly(lastAverageWorkingTime);
     }
     private void validationEndAndStartTimeRushOfWater(
             LocalTime endTimeRushOfWater, 
@@ -105,5 +107,4 @@ public class TidalPowerPlant extends PowerPlant {
     public String toString() {
         return "TidalPowerPlant{" + "startTimeRushOfWater=" + startTimeRushOfWater + ", endTimeRushOfWater=" + endTimeRushOfWater + ", isStorageTankFilled=" + isStorageTankFilled + '}';
     }
-    
 }

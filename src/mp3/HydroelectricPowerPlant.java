@@ -8,9 +8,17 @@ public class HydroelectricPowerPlant extends PowerPlant implements IHydroelectri
     private double damLength;
     private String damGatesState = stateClosed;
 
-    public HydroelectricPowerPlant(String name, String address, LocalDate createDate, int powerGeneratedElectricityPerDay, int damLength) {
+    public HydroelectricPowerPlant(
+            String name, 
+            String address, 
+            LocalDate createDate, 
+            int powerGeneratedElectricityPerDay,
+            int damLength, 
+            int lastAverageWorkingTime
+    ) {
         super(name, address, createDate, powerGeneratedElectricityPerDay);
         this.damLength = damLength;
+        createEnvironmentallyFriendly(lastAverageWorkingTime);
     }
 
     public double getDamLength() {
@@ -60,5 +68,9 @@ public class HydroelectricPowerPlant extends PowerPlant implements IHydroelectri
         System.out.println(message);
         showDamGatesState();
     }
-    
+
+    @Override
+    public String toString() {
+        return "HydroelectricPowerPlant{" + "stateClosed=" + stateClosed + ", stateOpened=" + stateOpened + ", damLength=" + damLength + ", damGatesState=" + damGatesState + '}';
+    }
 }

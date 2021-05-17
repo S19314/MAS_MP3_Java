@@ -18,8 +18,17 @@ public class ComplexHydroElectricalTidalPowerPlant extends TidalPowerPlant imple
     private double damLength;
     private String damGatesState = stateClosed;
 
-    public ComplexHydroElectricalTidalPowerPlant(String name, String address, LocalDate createDate, int powerGeneratedElectricityPerDay, LocalTime startTimeRushOfWater, LocalTime endTimeRushOfWater, int damLength) throws Exception {
-        super(name, address, createDate, powerGeneratedElectricityPerDay, startTimeRushOfWater, endTimeRushOfWater);
+    public ComplexHydroElectricalTidalPowerPlant(
+            String name, 
+            String address, 
+            LocalDate createDate, 
+            int powerGeneratedElectricityPerDay,
+            LocalTime startTimeRushOfWater, 
+            LocalTime endTimeRushOfWater, 
+            int damLength,
+            int lastAverageWorkingTime
+    ) throws Exception {
+        super(name, address, createDate, powerGeneratedElectricityPerDay, startTimeRushOfWater, endTimeRushOfWater, lastAverageWorkingTime);
         this.damLength = damLength;
     }
     
