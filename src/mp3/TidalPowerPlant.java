@@ -100,5 +100,10 @@ public class TidalPowerPlant extends PowerPlant {
         System.out.println(message);
     
     }
+
+    @Override
+    public String toString() {
+        return "TidalPowerPlant{" + "startTimeRushOfWater=" + startTimeRushOfWater + ", endTimeRushOfWater=" + endTimeRushOfWater + ", isStorageTankFilled=" + isStorageTankFilled + '}';
+    }
     
 }

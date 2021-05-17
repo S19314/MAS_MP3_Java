@@ -6,6 +6,7 @@
 package mp3;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.Date;
 
@@ -66,4 +67,26 @@ public class MP3 {
             powerPlant2.showMonthElectricictyGeneration();
             
     }
+    
+    
+    public static void multipleInheritance() {
+        try {
+        ComplexHydroElectricalTidalPowerPlant complexHydroElectricalTidalPowerPlant
+                = new ComplexHydroElectricalTidalPowerPlant(
+                        "UDA Kilo",
+                        "city Verdask", 
+                        LocalDate.of(1993, 5, 22),
+                        350,
+                        LocalTime.of(21, 23),
+                        LocalTime.of(05, 44),
+                        1
+                );
+            System.out.println(complexHydroElectricalTidalPowerPlant);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    
 }

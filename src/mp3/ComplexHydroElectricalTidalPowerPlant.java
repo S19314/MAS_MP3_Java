@@ -60,4 +60,11 @@ public class ComplexHydroElectricalTidalPowerPlant extends TidalPowerPlant imple
     public void showDamGatesState(){
         System.out.println("Dam Gates State is " + getDamGatesState());
     }
+
+    @Override
+    public String toString() {
+        return "ComplexHydroElectricalTidalPowerPlant{" + "stateClosed=" + stateClosed + ", stateOpened=" + stateOpened + ", damLength=" + damLength + ", damGatesState=" + damGatesState + '}';
+    }
+    
+    
 }
