@@ -2,7 +2,7 @@ package mp3;
 
 import java.time.LocalDate;
 
-public class HydroelectricPowerPlant extends PowerPlant {
+public class HydroelectricPowerPlant extends PowerPlant implements IHydroelectricPowerPlant {
     
     private String stateClosed = "Closed", stateOpened = "Opened";
     private double damLength;
